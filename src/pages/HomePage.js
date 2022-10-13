@@ -11,8 +11,8 @@ function HomePage() {
     const [keyword, setKeyword] = useState('')
 
     useEffect(() => {
-        dispatch(listProducts(keyword))
-    }, [dispatch, keyword])
+        dispatch(listProducts())
+    }, [dispatch])
 
     return (
         <Box sx={{ m: 2 }}>
