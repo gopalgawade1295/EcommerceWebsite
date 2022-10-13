@@ -33,7 +33,14 @@ function HomePage() {
                     error ? <Typography variant='caption' sx={{ color: '#FF0000' }}>{error}</Typography> :
                         <Box sx={{ m: 2 }}>
                             <Grid container spacing={2} alignItems='center' justifyContent='center'>
-                                {products.map((product) => (
+                                {products.filter((Product) => {
+                                    if (!keyword) {
+                                        return Product
+                                    }
+                                    else if (Product.name.toLowerCase().includes(keyword.toLowerCase())) {
+                                        return Product
+                                    }
+                                }).map((product) => (
                                     <Grid item lg={3} md={4} sm={6} xs={12} key={product._id}>
                                         <Product product={product} />
                                     </Grid>
